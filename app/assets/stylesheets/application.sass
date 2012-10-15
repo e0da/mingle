@@ -1,0 +1,51 @@
+@import twitter/bootstrap-no-sprites
+@import twitter/bootstrap/responsive
+@import font-awesome
+
+$sr_red: #a61623
+
+html
+  +gradient-vertical($sr_red, darken($sr_red, 15%))
+  background:
+    position: bottom
+    repeat: no-repeat
+    attachment: fixed
+
+body
+  margin-top: 1em
+  background: transparent
+
+h1 a
+  color: inherit
+
+  &:hover
+    color: inherit
+    text-decoration: none
+
+
+.sr_red
+  color: $sr_red
+
+footer, #page
+  max-width: 500px
+
+footer
+  color: whitesmoke
+  margin: 0 auto
+
+#page
+  margin: 3em auto 1em
+  padding: 1em
+  background: white
+  +border-radius(7px)
+  +box-shadow(0 0 20px black)
+  +gradient-vertical(white, darken(white, 20%))
+
+#shadow
+  position: fixed
+  height: 100%
+  width: 100%
+  bottom: 0
+  right: 0
+  z-index: -1
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6)

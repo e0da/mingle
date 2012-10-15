@@ -1,0 +1,5 @@
+- %w[error success information].each do |type|
+  - msg = flash[type.to_sym]
+  - unless msg.nil?
+    div class="alert alert-#{type}"
+      = msg
