@@ -1,6 +1,8 @@
 @import twitter/bootstrap-no-sprites
 @import twitter/bootstrap/responsive
 @import font-awesome
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:700)
+
 
 $sr_red: #a61623
 
@@ -26,20 +28,50 @@ h1 a
 .sr_red
   color: $sr_red
 
+h1.brand
+  margin-top: 0
+  font-size: 40px
+
+.brand
+  font-family: 'PT Sans', sans-serif
+
 footer, #page
   max-width: 500px
 
 footer
-  color: whitesmoke
+  $color: darken(white, 20%)
+  color: $color
   margin: 0 auto
 
+  a
+    color: $color
+    text-decoration: none
+    cursor: default
+    &:hover
+      color: $color
+      text-decoration: none
+
 #page
-  margin: 3em auto 1em
-  padding: 1em
+  margin: 1em auto
+  padding: 1em 1em
   background: white
   +border-radius(7px)
   +box-shadow(0 0 20px black)
   +gradient-vertical(white, darken(white, 20%))
+
+#content
+  h1
+    font-size: 30px
+  h2
+    font-size: 24px
+  h3
+    font-size: 18px
+  h4
+    font-size: 14px
+  h5
+    font-size: 12px
+  h6
+    font-size: 10px
 
 #shadow
   position: fixed
@@ -49,3 +81,14 @@ footer
   right: 0
   z-index: -1
   box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6)
+
+.index .btn-group
+  opacity: 0
+
+.index tr:hover .btn-group
+  opacity: 1
+
+@media (max-width: 767px)
+  input[type=text], input[type=submit], input[type=password]
+    float: left
+    width: 100%

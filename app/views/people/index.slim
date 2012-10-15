@@ -1,0 +1,16 @@
+h1 Listing people
+
+table.index.table-striped
+  tr
+    th Name
+    th Email
+    th
+  - @people.each do |person|
+    tr
+      td = person.name
+      td = person.email
+      td
+        .btn-group
+          = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
+          = link_to 'Edit', edit_person_path(person), class: 'btn btn-mini btn-inverse'
+          = link_to 'Delete', person, class: 'btn btn-mini btn-danger', method: 'delete', data: {confirm: 'Are you sure?'}

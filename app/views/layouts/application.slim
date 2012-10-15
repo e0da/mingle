@@ -10,12 +10,16 @@ html
     #page.container-fluid
       .row-fluid
         .span12
-          h1
+          = render 'toolbox' if signed_in?
+          h1.brand
             a href==root_url
               span.sr_red Smart
               | Receipt
-          = render 'flash_messages'
-          = yield
-    footer
-      small.pull-right Copyright &copy; SmartReceipt
+          #content
+            = yield
+    footer.brand
+      small.pull-right
+        ' Copyright
+        = link_to '©', sign_in_url
+        |  SmartReceipt
     #shadow

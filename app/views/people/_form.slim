@@ -1,0 +1,11 @@
+= form_for(@person) do |f|
+  = render 'form_errors'
+
+  div class="field"
+    = f.label :name
+    = f.text_field :name, class: 'input-xlarge'
+  div class="field"
+    = f.label :email
+    = f.text_field :email, class: 'input-xlarge'
+  div class="actions"
+    = f.submit 'Submit', class: 'btn btn-inverse'

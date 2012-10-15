@@ -1,0 +1,10 @@
+- if notice
+  p.alert.alert-success = notice
+
+dl.dl-horizontal
+  dt Name
+  dd = @person.name
+  dt Email
+  dd = @person.email
+
+a.btn.btn-inverse href==edit_person_path(@person) Edit
