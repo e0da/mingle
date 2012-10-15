@@ -4,11 +4,13 @@ table.index.table-striped
   tr
     th Name
     th Email
+    th Confirmation Number
     th
   - @people.each do |person|
     tr
       td = person.name
       td = person.email
+      td.center = person.confirmation_number
       td
         .btn-group
           = link_to 'Show', person, class: 'btn btn-mini btn-inverse'

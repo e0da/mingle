@@ -7,4 +7,17 @@ dl.dl-horizontal
   dt Email
   dd = @person.email
 
+p.alert.alert-info
+  b Please
+  '  write your
+  b confirmation number
+  '  on your
+  b résumé
+  | .
+
+dl.confirmation_number
+  dt Confirmation Number
+  dd = @person.confirmation_number
+
+
 a.btn.btn-inverse href==edit_person_path(@person) Edit
