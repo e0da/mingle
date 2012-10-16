@@ -44,6 +44,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
+    set_expected_graduation_date
 
     respond_to do |format|
       if @person.save
@@ -60,6 +61,7 @@ class PeopleController < ApplicationController
   # PUT /people/1.json
   def update
     @person = Person.find(params[:id])
+    set_expected_graduation_date
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
@@ -82,5 +84,11 @@ class PeopleController < ApplicationController
       format.html { redirect_to people_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def set_expected_graduation_date
+    @person.expected_graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}")
   end
 end

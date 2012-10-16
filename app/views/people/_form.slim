@@ -1,11 +1,23 @@
 = form_for(@person) do |f|
   = render 'form_errors'
 
-  div class="field"
-    = f.label :name
-    = f.text_field :name, class: 'input-xlarge'
-  div class="field"
-    = f.label :email
-    = f.text_field :email, class: 'input-xlarge'
-  div class="actions"
-    = f.submit 'Submit', class: 'btn btn-inverse'
+  = f.label :name
+  = f.text_field :name, class: 'span6', placeholder: 'First Last'
+
+  = f.label :email
+  = f.text_field :email, class: 'span6', placeholder: 'you@example.org'
+
+  = f.label :phone, 'Phone (optional)'
+  = f.text_field :phone, class: 'span6', placeholder: 'i.e. (805) 555-5678'
+
+  - today = Date.today
+  = f.label :expected_graduation_date
+  = select_month today, {}, {class: 'span4'}
+  = select_year today, {start_year: today.year, end_year: today.year + 2}, {class: 'span2'}
+
+  = f.label :availability
+  = f.collection_select :availability_id, Availability.all, :id, :description, {prompt: true}, {class: 'span6'}
+
+  .clearfix
+
+  = f.submit 'Submit', class: 'btn btn-inverse clearfix'
