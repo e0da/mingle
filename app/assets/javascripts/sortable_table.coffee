@@ -1,6 +1,6 @@
 # Accept a jQuery-wrapped table and make it sortable by clicking the column
 # headers
-class @SortTable
+class @SortableTable
 
   constructor: (table)->
     self = this

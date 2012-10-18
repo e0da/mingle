@@ -1,4 +1,9 @@
-h1 Listing people
+h1 All People
+
+form#filter-people.form-search.pull-right
+  .input-prepend
+    button.btn type='submit' data-toggle='button' Case-Sensitive
+    input.search-query type='text' placeholder='Filter by any field...'
 
 table.index.table.table-striped
   thead
@@ -24,3 +29,5 @@ table.index.table.table-striped
             = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
             = link_to 'Edit', edit_person_path(person), class: 'btn btn-mini btn-inverse'
             = link_to 'Delete', person, class: 'btn btn-mini btn-danger', method: 'delete', data: {confirm: 'Are you sure?'}
+
+= javascript_include_tag 'people_index'
