@@ -9,7 +9,12 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @people.to_json(methods: [:confirmation_number, :availability_description])}
+      format.json do
+        render json: @people.to_json(
+          methods: :confirmation_number,
+          include: :availability
+        )
+      end
     end
   end
 

@@ -10,8 +10,4 @@ class Person < ActiveRecord::Base
   def confirmation_number
     27 + id
   end
-
-  def availability_description
-    availability.description
-  end
 end
