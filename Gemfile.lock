@@ -203,7 +203,7 @@ DEPENDENCIES
   jquery-rails
   libnotify
   pg
-  rails (~> 3.2.10)
+  rails (~> 3.2.11)
   rb-inotify
   rspec
   rspec-rails
