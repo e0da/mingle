@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.12'
 
 gem 'bcrypt-ruby'
 gem 'pg'
@@ -10,9 +10,9 @@ gem 'slim'
 
 group :assets do
   gem 'bootstrap-sass-rails'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails', '~> 3.2'
   gem 'font-awesome-sass-rails'
-  gem 'sass-rails', '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '~> 1.0'
 end

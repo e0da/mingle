@@ -1,6 +1,9 @@
 SmartReceipt Mingle
 ===================
 
+[![Dependency
+Status](https://gemnasium.com/SmartReceipt/mingle.png)](https://gemnasium.com/SmartReceipt/mingle)
+
 Web app to easily gather contact information.
 
 Development
