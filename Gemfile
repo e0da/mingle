@@ -18,14 +18,15 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'capybara',     :require => false
-  gem 'guard-rails',  :require => false
-  gem 'guard-rspec',  :require => false
-  gem 'guard-spork',  :require => false
-  gem 'libnotify',    :require => false
-  gem 'rb-inotify',   :require => false
-  gem 'rspec',        :require => false
-  gem 'rspec-rails',  :require => false
-  gem 'simplecov',    :require => false
-  gem 'spork',        :require => false
+  gem 'capybara'
+  gem 'guard-rails'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'libnotify'
+  gem 'rb-inotify'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'spork'
+  gem 'sqlite3'
 end
