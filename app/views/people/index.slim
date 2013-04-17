@@ -14,6 +14,7 @@ table.index.table.table-striped
       th Phone
       th Expected Graduation Date
       th Availability
+      th Notes
       th
   tbody
     - @people.each do |person|
@@ -24,6 +25,7 @@ table.index.table.table-striped
         td = person.phone
         td = month_and_year(person.expected_graduation_date)
         td = person.availability.description
+        td = person.notes
         td
           .btn-group
             = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
