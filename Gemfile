@@ -22,6 +22,7 @@ group :development, :test do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
+  # See https://github.com/carlhuda/bundler/wiki/Platform-as-a-parameter
   gem 'libnotify',  :require => RUBY_PLATFORM.include?('linux') && 'libnotify'
   gem 'terminal-notifier-guard' , :require => RUBY_PLATFORM.include?('darwin') && 'terminal-notifier-guard'
   gem 'rb-inotify', :require => false
