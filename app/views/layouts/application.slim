@@ -6,13 +6,13 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  body class=="#{controller.controller_name} #{controller.action_name}"
+  body class="#{controller.controller_name} #{controller.action_name}"
     #page.container-fluid
       .row-fluid
         .span12
           = render 'toolbox' if signed_in?
           h1.brand
-            a href==root_url
+            a href=root_url
               span.sr_red Smart
               | Receipt
           #content
