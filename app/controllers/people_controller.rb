@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate
 
   # GET /people
   # GET /people.json

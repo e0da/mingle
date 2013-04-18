@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless signed_in?
-      redirect_to root_url
+      redirect_to sign_in_url
     end
   end
 
