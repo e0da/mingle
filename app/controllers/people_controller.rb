@@ -108,6 +108,6 @@ class PeopleController < ApplicationController
   private
 
   def set_expected_graduation_date
-    @person.expected_graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}")
+    @person.expected_graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}") if params[:date]
   end
 end
