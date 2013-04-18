@@ -30,8 +30,10 @@ table.index.table.table-striped
           = 'Poor' if person.impression == -1
         td
           .btn-group
-            = link_to 'Like',   like_person_path(person),    remote: true, class: 'btn btn-mini btn-success'
-            = link_to 'Disike', dislike_person_path(person), remote: true, class: 'btn btn-mini btn-danger'
+            a.btn.btn-mini.btn-inverse data-remote='true' href==like_person_path(person)
+              i.icon-white.icon-thumbs-up
+            a.btn.btn-mini.btn-inverse data-remote='true' href==dislike_person_path(person)
+              i.icon-white.icon-thumbs-down
             = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
             = link_to 'Edit', edit_person_path(person), class: 'btn btn-mini btn-inverse'
             = link_to 'Delete', person, class: 'btn btn-mini btn-danger', method: 'delete', data: {confirm: 'Are you sure?'}

@@ -5,15 +5,19 @@
     h3 Toolbox
   .modal-body.center
     .btn-toolbar
-      a.btn.btn-inverse href==people_url title='List of all people'
-        | View List Page
-      a.btn.btn-inverse href==people_url(format: :json) title='List all people in JSON'
-        | View List as JSON
-      a.btn.btn-danger href==sign_out_url
-        | Sign Out
-    - if showing_person?
-      .btn-group
-        = link_to 'Like',   like_person_url,    remote: true, class: 'btn btn-success'
-        = link_to 'Disike', dislike_person_url, remote: true, class: 'btn btn-danger'
+      a.btn.btn-large.btn-inverse href==people_url
+        | List Page
+      a.btn.btn-large.btn-inverse href==people_url(format: :json)
+        | List as JSON
+      - if showing_person?
+          a.btn.btn-large.btn-inverse href==edit_person_path(@person)
+            | Edit
+          a.btn.btn-large.btn-inverse data-remote='true' href==like_person_url
+            i.icon-white.icon-thumbs-up
+          a.btn.btn-large.btn-inverse data-remote='true' href==dislike_person_url
+            i.icon-white.icon-thumbs-down
   .modal-footer
-    a.btn data-dismiss='modal' Close
+    a.btn.btn-danger href==sign_out_url
+      | Sign Out
+    a.btn data-dismiss='modal'
+      | Close

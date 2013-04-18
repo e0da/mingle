@@ -21,11 +21,11 @@ table.table.table-striped
     th Phone
     td = @person.phone
   tr
+    th Position
+    td = @person.position
+  tr
     th Expected Graduation Date
     td = month_and_year(@person.expected_graduation_date)
   tr
     th Availability
     td = @person.availability.description
-
-- if signed_in?
-  a.btn.btn-inverse href==edit_person_path(@person) Edit
