@@ -1,7 +1,7 @@
 #toolbox.modal.hide.fade role='dialog'
   .modal-header
     button.close type='button' data-dismiss='modal'
-      x
+      | x
     h3 Toolbox
   .modal-body.center
     .btn-toolbar
@@ -12,10 +12,19 @@
       - if showing_person?
           a.btn.btn-large.btn-inverse href==edit_person_path(@person)
             | Edit
+          a#notes_button.btn.btn-large.btn-inverse href='#notes'
+            | Notes
           a.btn.btn-large.btn-inverse data-remote='true' href==like_person_url
             i.icon-white.icon-thumbs-up
           a.btn.btn-large.btn-inverse data-remote='true' href==dislike_person_url
             i.icon-white.icon-thumbs-down
+    - if showing_person?
+      #notes
+        h3 Notes
+        = form_for @person, remote: true do |f|
+          = f.text_area :notes, class: 'span5 clearfix', rows: '3'
+          = f.submit 'Save', class: 'btn btn-inverse clearfix span5'
+
   .modal-footer
     a.btn.btn-danger href==sign_out_url
       | Sign Out

@@ -16,6 +16,7 @@ table.index.table.table-striped
       th Expected Graduation Date
       th Availability
       th Impression
+      th Notes
       th
   tbody
     - @people.each do |person|
@@ -30,6 +31,7 @@ table.index.table.table-striped
         td
           = 'Good' if person.impression == 1
           = 'Poor' if person.impression == -1
+        td = person.notes
         td
           .btn-group
             a.btn.btn-mini.btn-inverse data-remote='true' href==like_person_path(person)
