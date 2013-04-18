@@ -1,45 +1,65 @@
 h1 All People
 
-form#filter-people.form-search.pull-right
-  .input-prepend
-    button.btn type='submit' data-toggle='button' Case-Sensitive
+form#filter-people.form-search
+  .input-append
     input.search-query type='text' placeholder='Filter by any field...'
+    button.btn type='submit' data-toggle='button' Case-Sensitive
 
-table.index.table.table-striped
-  thead
-    tr
-      th Confirmation Number
-      th Name
-      th Email
-      th Phone
-      th Position
-      th Expected Graduation Date
-      th Availability
-      th Impression
-      th Notes
-      th
-  tbody
-    - @people.each do |person|
+#all-people
+  table.index.table.table-striped
+    thead
       tr
-        td.center = person.confirmation_number
-        td = person.name
-        td = person.email
-        td = person.phone
-        td = person.position.try :description
-        td = month_and_year(person.expected_graduation_date)
-        td = person.availability.description
-        td
-          = 'Good' if person.impression == 1
-          = 'Poor' if person.impression == -1
-        td = person.notes
-        td
-          .btn-group
-            a.btn.btn-mini.btn-inverse data-remote='true' title='Like' href==like_person_path(person)
-              i.icon-white.icon-thumbs-up
-            a.btn.btn-mini.btn-inverse data-remote='true' title='Meh (neither like nor dislike)' href==meh_person_path(person)
-              i.icon-white.icon-remove
-            a.btn.btn-mini.btn-inverse data-remote='true' title='Dislike' href==dislike_person_path(person)
-              i.icon-white.icon-thumbs-down
-            = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
-            = link_to 'Edit', edit_person_path(person), class: 'btn btn-mini btn-inverse'
-            = link_to 'Delete', person, class: 'btn btn-mini btn-danger', method: 'delete', data: {confirm: 'Are you sure?'}
+        th title='Confirmation Number' #
+        th Name
+        th Email
+        th Phone
+        th Position
+        th title='Expected Graduation Date' Grad
+        th Availability
+        th Impression
+        th Notes
+    tbody
+      - @people.each do |person|
+        tr data-id==person.id data-name==person.name
+          td.center = person.confirmation_number
+          td = person.name
+          td = person.email
+          td = person.phone
+          td = person.position.try :description
+          td = month_and_year(person.expected_graduation_date)
+          td = person.availability.description
+          td
+            = 'Good' if person.impression == 1
+            = 'Poor' if person.impression == -1
+          td = person.notes
+
+  - @people.each do |person|
+    .modal.hide.fade role='dialog' id=="person_#{person.id}"
+      .modal-header
+        button.close type='button' data-dismiss='modal'
+          | x
+        h3.title
+      .modal-body.center
+        .btn-toolbar
+          = link_to 'Show', person, class: 'btn btn-large btn-inverse'
+          = link_to 'Edit', edit_person_path(person), class: 'btn btn-large btn-inverse'
+          = link_to 'Delete', person, class: 'btn btn-large btn-danger', method: 'delete', data: {confirm: 'Are you sure?'}
+        .btn-toolbar
+          a.btn.btn-large.btn-inverse data-remote='true' title='Like' href==like_person_path(person)
+            i.icon-white.icon-thumbs-up
+          a.btn.btn-large.btn-inverse data-remote='true' title='Meh (neither like nor dislike)' href==meh_person_path(person)
+            i.icon-white.icon-remove
+          a.btn.btn-large.btn-inverse data-remote='true' title='Dislike' href==dislike_person_path(person)
+            i.icon-white.icon-thumbs-down
+          a#notes_button.btn.btn-large.btn-inverse href='#notes'
+            | Notes
+        #notes
+          h4 Notes
+          = form_for person, remote: true do |f|
+            = f.text_area :notes, class: 'span5 clearfix', rows: '3'
+            br
+            = f.submit 'Save', class: 'btn btn-inverse clearfix span5'
+
+      .modal-footer
+        a.btn data-dismiss='modal'
+          | Close

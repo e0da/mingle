@@ -7,6 +7,7 @@
 $sr_red: #a61623
 
 html
+  height: 100%
   +gradient-vertical($sr_red, darken($sr_red, 15%))
   background:
     position: bottom
@@ -25,7 +26,7 @@ h1 a
     text-decoration: none
 
 
-.sr_red
+.sr-red
   color: $sr_red
 
 .center
@@ -53,7 +54,8 @@ footer
     color: $color
     text-decoration: none
     cursor: default
-    &:hover
+    &:hover, &:focus, &:visited
+      outline: 0
       color: $color
       text-decoration: none
 
@@ -79,7 +81,7 @@ footer
   h6
     font-size: 10px
 
-.confirmation_number
+.confirmation-number
   text-align: center
   font-size: 2em
 
@@ -87,27 +89,18 @@ footer
     font-size: 2.5em
     line-height: 1.5em
 
-#shadow
-  position: fixed
-  height: 100%
-  width: 100%
-  bottom: 0
-  right: 0
-  z-index: -1
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6)
-
-table.index .btn-group
-  opacity: 0
-
-table.index tr:hover .btn-group
-  opacity: 1
-
 th.sortable
   cursor: pointer
 
 .people.index
   #page, footer
     max-width: 90%
+  #all-people
+    overflow: auto
+    table
+      background: #dedede
+      td
+        white-space: pre
 
 @media (max-width: 767px)
   input[type=text], input[type=submit], input[type=password], select

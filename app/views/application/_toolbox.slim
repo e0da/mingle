@@ -4,14 +4,12 @@
       | x
     h3 Toolbox
   .modal-body.center
-    h4 Navigation
     .btn-toolbar
       a.btn.btn-large.btn-inverse href==people_url
         | List Page
       a.btn.btn-large.btn-inverse href==people_url(format: :json)
         | List as JSON
-    - if showing_person?
-      h4 Impression
+    - if showing_or_editing_person?
       .btn-toolbar
         a.btn.btn-large.btn-inverse data-remote='true' href==like_person_url
           i.icon-white.icon-thumbs-up
@@ -19,16 +17,15 @@
           i.icon-white.icon-remove
         a.btn.btn-large.btn-inverse data-remote='true' href==dislike_person_url
           i.icon-white.icon-thumbs-down
-      h4 Manage
-      .btn-toolbar
         a.btn.btn-large.btn-inverse href==edit_person_path(@person)
           | Edit
         a#notes_button.btn.btn-large.btn-inverse href='#notes'
           | Notes
       #notes
-        h3 Notes
+        h4 Notes
         = form_for @person, remote: true do |f|
           = f.text_area :notes, class: 'span5 clearfix', rows: '3'
+          br
           = f.submit 'Save', class: 'btn btn-inverse clearfix span5'
 
   .modal-footer

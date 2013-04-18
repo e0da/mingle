@@ -1,0 +1,15 @@
+#= require twitter/bootstrap/button
+#= require sortable_table
+#= require filterable_table
+
+$ ->
+  $people_table = $('.people.index table.index')
+  new SortableTable $people_table
+  new FilterableTable $('#filter-people'), $people_table
+
+  $people_table.find('tr').click (event)->
+    [id, name] = [ $(this).data('id'), $(this).data('name') ]
+
+    $modal = $("#person_#{id}")
+    $modal.find('h3.title').text name
+    $modal.modal 'toggle'

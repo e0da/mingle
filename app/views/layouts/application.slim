@@ -12,7 +12,7 @@ html
         .span12
           h1.brand
             a href==root_url
-              span.sr_red Smart
+              span.sr-red Smart
               | Receipt
           #content
             = yield
@@ -24,5 +24,4 @@ html
         - else
           | &copy;
         |  SmartReceipt
-    #shadow
     = render 'toolbox' if signed_in?
