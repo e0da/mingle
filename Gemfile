@@ -22,8 +22,8 @@ group :development, :test do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'libnotify'
-  gem 'rb-inotify'
+  gem 'libnotify'  if RbConfig::CONFIG['target_os'] =~ /linux/i
+  gem 'rb-inotify' if RbConfig::CONFIG['target_os'] =~ /linux/i
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov'
