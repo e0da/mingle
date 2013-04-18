@@ -2,13 +2,13 @@
   = render 'form_errors'
 
   = f.label :name
-  = f.text_field :name, class: 'span8', placeholder: 'Gabby Gaucho'
+  = f.text_field :name, class: 'span8', placeholder: 'Gabby Gaucho', autocomplete: 'off'
 
   = f.label :email
-  = f.email_field :email, class: 'span8', placeholder: 'you@example.org'
+  = f.email_field :email, class: 'span8', placeholder: 'you@example.org', autocomplete: 'off'
 
   = f.label :phone, 'Phone (optional)'
-  = f.phone_field :phone, class: 'span8', placeholder: 'e.g. (805) 555-5678'
+  = f.phone_field :phone, class: 'span8', placeholder: 'e.g. (805) 555-5678', autocomplete: 'off'
 
   = f.label :position
   = f.collection_select :position_id, Position.find_all_by_enabled(true), :id, :description, {prompt: true}, {class: 'span8'}
