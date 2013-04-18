@@ -5,10 +5,10 @@
   = f.text_field :name, class: 'span6', placeholder: 'First Last'
 
   = f.label :email
-  = f.text_field :email, class: 'span6', placeholder: 'you@example.org'
+  = f.email_field :email, class: 'span6', placeholder: 'you@example.org'
 
   = f.label :phone, 'Phone (optional)'
-  = f.text_field :phone, class: 'span6', placeholder: 'e.g. (805) 555-5678'
+  = f.telephone_field :phone, class: 'span6', placeholder: 'e.g. (805) 555-5678'
 
   - today = Date.today
   = f.label :expected_graduation_date
