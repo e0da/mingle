@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418022638) do
+ActiveRecord::Schema.define(:version => 20130418040542) do
 
   create_table "administrators", :force => true do |t|
     t.string   "username"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130418022638) do
     t.datetime "expected_graduation_date"
     t.integer  "impression",               :default => 0
     t.integer  "position_id"
+    t.text     "notes"
   end
 
   create_table "positions", :force => true do |t|
