@@ -10,7 +10,6 @@ html
     #page.container-fluid
       .row-fluid
         .span12
-          = render 'toolbox' if signed_in?
           h1.brand
             a href==root_url
               span.sr_red Smart
@@ -20,6 +19,8 @@ html
     footer.brand
       small.pull-right
         ' Copyright
-        = link_to '©', sign_in_url
+        a role='button' data-toggle='modal' href==(signed_in? ? '#toolbox' : sign_in_url)
+          | &copy;
         |  SmartReceipt
     #shadow
+    = render 'toolbox' if signed_in?
