@@ -10,6 +10,8 @@
       a.btn.btn-large.btn-inverse href==people_url(format: :json)
         | List as JSON
       - if showing_person?
+          a.btn.btn-large.btn-inverse href==edit_person_path(@person)
+            | Edit
           a.btn.btn-large.btn-inverse data-remote='true' href==like_person_url
             i.icon-white.icon-thumbs-up
           a.btn.btn-large.btn-inverse data-remote='true' href==dislike_person_url
