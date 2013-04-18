@@ -1,19 +1,9 @@
 SmartReceipt Mingle
 ===================
 
-[![Dependency
-Status](https://gemnasium.com/SmartReceipt/mingle.png)](https://gemnasium.com/SmartReceipt/mingle)
+[![Dependency Status](https://gemnasium.com/SmartReceipt/mingle.png)](https://gemnasium.com/SmartReceipt/mingle)
 
 Web app to easily gather contact information.
-
-Development
------------
-
-We use PostgreSQL and RSpec, so the project was created with
-
-```sh
-rails new mingle --database=postgresql --skip-test-unit
-```
 
 License
 -------
