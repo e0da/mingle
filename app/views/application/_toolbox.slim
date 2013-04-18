@@ -1,4 +1,15 @@
-#toolbox.pull-right.btn-group
-  a.btn.btn-inverse.btn-mini href==people_url title='List of all people' List
-  a.btn.btn-inverse.btn-mini href==people_url(format: :json) title='List all people in JSON' JSON
-  a.btn.btn-danger.btn-mini href==sign_out_url Sign Out
+#toolbox.modal.hide.fade role='dialog'
+  .modal-header
+    button.close type='button' data-dismiss='modal'
+      x
+    h3 Toolbox
+  .modal-body.center
+    .btn-toolbar
+      a.btn.btn-inverse href==people_url title='List of all people'
+        | View List Page
+      a.btn.btn-inverse href==people_url(format: :json) title='List all people in JSON'
+        | View List as JSON
+      a.btn.btn-danger href==sign_out_url
+        | Sign Out
+  .modal-footer
+    a.btn data-dismiss='modal' Close
