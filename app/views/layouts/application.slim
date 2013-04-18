@@ -19,7 +19,9 @@ html
     footer.brand
       small.pull-right
         ' Copyright
-        a role='button' data-toggle='modal' href==(signed_in? ? '#toolbox' : sign_in_url)
+        - if signed_in?
+          a role='button' data-toggle='modal' href='#toolbox' &copy;
+        - else
           | &copy;
         |  SmartReceipt
     #shadow
