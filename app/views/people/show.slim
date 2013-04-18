@@ -22,7 +22,7 @@ table.table.table-striped
     td = @person.phone
   tr
     th Position
-    td = @person.position
+    td = @person.position.try :description
   tr
     th Expected Graduation Date
     td = month_and_year(@person.expected_graduation_date)
