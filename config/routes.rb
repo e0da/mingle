@@ -9,6 +9,7 @@ Mingle::Application.routes.draw do
 
   get   '/people/:id/like',    to: 'people#like',    as: :like_person
   get   '/people/:id/dislike', to: 'people#dislike', as: :dislike_person
+  get   '/people/:id/meh',     to: 'people#meh',     as: :meh_person
 
   match '/admin' => redirect('/signin')
 end

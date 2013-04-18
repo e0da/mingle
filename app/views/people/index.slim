@@ -34,9 +34,11 @@ table.index.table.table-striped
         td = person.notes
         td
           .btn-group
-            a.btn.btn-mini.btn-inverse data-remote='true' href==like_person_path(person)
+            a.btn.btn-mini.btn-inverse data-remote='true' title='Like' href==like_person_path(person)
               i.icon-white.icon-thumbs-up
-            a.btn.btn-mini.btn-inverse data-remote='true' href==dislike_person_path(person)
+            a.btn.btn-mini.btn-inverse data-remote='true' title='Meh (neither like nor dislike)' href==meh_person_path(person)
+              i.icon-white.icon-remove
+            a.btn.btn-mini.btn-inverse data-remote='true' title='Dislike' href==dislike_person_path(person)
               i.icon-white.icon-thumbs-down
             = link_to 'Show', person, class: 'btn btn-mini btn-inverse'
             = link_to 'Edit', edit_person_path(person), class: 'btn btn-mini btn-inverse'

@@ -92,22 +92,27 @@ class PeopleController < ApplicationController
   end
 
   def like
-    @person = Person.find(params[:id])
-    @person.impression = 1
-    @person.save
-    render nothing: true
+    set_impression(1)
   end
 
   def dislike
-    @person = Person.find(params[:id])
-    @person.impression = -1
-    @person.save
-    render nothing: true
+    set_impression(-1)
+  end
+
+  def meh
+    set_impression(0)
   end
 
   private
 
   def set_expected_graduation_date
     @person.expected_graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}") if params[:date]
+  end
+
+  def set_impression(value)
+    @person = Person.find(params[:id])
+    @person.impression = value
+    @person.save
+    render nothing: true
   end
 end
