@@ -11,5 +11,9 @@
         | View List as JSON
       a.btn.btn-danger href==sign_out_url
         | Sign Out
+    - if showing_person?
+      .btn-group
+        = link_to 'Like',   like_person_url,    remote: true, class: 'btn btn-success'
+        = link_to 'Disike', dislike_person_url, remote: true, class: 'btn btn-danger'
   .modal-footer
     a.btn data-dismiss='modal' Close

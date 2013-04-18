@@ -91,6 +91,20 @@ class PeopleController < ApplicationController
     end
   end
 
+  def like
+    @person = Person.find(params[:id])
+    @person.impression = 1
+    @person.save
+    render nothing: true
+  end
+
+  def dislike
+    @person = Person.find(params[:id])
+    @person.impression = -1
+    @person.save
+    render nothing: true
+  end
+
   private
 
   def set_expected_graduation_date
