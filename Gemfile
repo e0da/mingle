@@ -22,8 +22,10 @@ group :development, :test do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'libnotify'  if RbConfig::CONFIG['target_os'] =~ /linux/i
-  gem 'rb-inotify' if RbConfig::CONFIG['target_os'] =~ /linux/i
+  gem 'libnotify',  :require => RUBY_PLATFORM.include?('linux') && 'libnotify'
+  gem 'terminal-notifier-guard' , :require => RUBY_PLATFORM.include?('darwin') && 'terminal-notifier-guard'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov'
