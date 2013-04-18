@@ -12,6 +12,7 @@ table.index.table.table-striped
       th Name
       th Email
       th Phone
+      th Position
       th Expected Graduation Date
       th Availability
       th Impression
@@ -23,6 +24,7 @@ table.index.table.table-striped
         td = person.name
         td = person.email
         td = person.phone
+        td = person.position.try :description
         td = month_and_year(person.expected_graduation_date)
         td = person.availability.description
         td
