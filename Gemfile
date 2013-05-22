@@ -10,9 +10,7 @@ gem 'slim'
 
 group :assets do
   gem 'bootstrap-sass-rails'
-  gem 'coffee-rails', '~> 3.2'
   gem 'font-awesome-sass-rails'
-  gem 'sass-rails', '~> 3.2'
   gem 'uglifier'
 end
 
