@@ -13,17 +13,15 @@ group :assets do
   gem 'coffee-rails', '~> 3.2'
   gem 'font-awesome-sass-rails'
   gem 'sass-rails', '~> 3.2'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '~> 1.0'
+  gem 'uglifier'
 end
 
 group :development, :test do
   gem 'capybara'
+  gem 'guard'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'libnotify'  if RbConfig::CONFIG['target_os'] =~ /linux/i
-  gem 'rb-inotify' if RbConfig::CONFIG['target_os'] =~ /linux/i
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov'
