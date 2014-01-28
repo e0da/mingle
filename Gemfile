@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rake', '~> 0.8.7'
 gem 'rails', '~> 3.2.13'
 
 gem 'bcrypt-ruby'
