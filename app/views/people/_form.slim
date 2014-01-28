@@ -17,7 +17,7 @@
   = f.label :graduation_date
   .controls-row
     = select_month Date.parse('June'), {}, {class: 'span6'}
-    = select_year today, {start_year: today.year, end_year: today.year + 4}, {class: 'span2'}
+    = select_year today, {start_year: today.year - 2, end_year: today.year + 4}, {class: 'span2'}
 
   = f.label :availability
   = f.collection_select :availability_id, Availability.find_all_by_enabled(true), :id, :description, {prompt: true}, {class: 'span8'}
