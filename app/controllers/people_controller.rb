@@ -9,10 +9,19 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+
+      # XXX To get this to render as pretty JSON, we have to use @people.to_json
+      # with arguments (i.e. :methods, :include) to get the appropriate data
+      # out of. But @people.to_json returns a String, and JSON.pretty_generate
+      # expects a JSON, Hash, or Array. So we have to render the JSON to a
+      # string, then parse it to a Hash with JSON.parse, and finally run
+      # JSON.pretty_generate on that Hash. >_<
       format.json do
-        render json: @people.to_json(
-          methods: :confirmation_number,
-          include: :availability
+        render json: pretty_json(
+          @people.to_json(
+            methods: :confirmation_number,
+            include: :availability
+          )
         )
       end
     end
@@ -25,7 +34,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @person }
+      format.json { render json: pretty_json(@person) }
     end
   end
 
@@ -114,5 +123,11 @@ class PeopleController < ApplicationController
     @person.impression = value
     @person.save
     render nothing: true
+  end
+
+  # Accept JSON as a String and return a formatted JSON string
+  def pretty_json(subject)
+    subject = subject.to_json unless subject.class == String
+    JSON.pretty_generate JSON.parse(subject)
   end
 end
