@@ -58,7 +58,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
-    set_expected_graduation_date
+    set_graduation_date
 
     respond_to do |format|
       if @person.save
@@ -75,7 +75,7 @@ class PeopleController < ApplicationController
   # PUT /people/1.json
   def update
     @person = Person.find(params[:id])
-    set_expected_graduation_date
+    set_graduation_date
 
     respond_to do |format|
       if @person.update_attributes(params[:person])
@@ -114,8 +114,8 @@ class PeopleController < ApplicationController
 
   private
 
-  def set_expected_graduation_date
-    @person.expected_graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}") if params[:date]
+  def set_graduation_date
+    @person.graduation_date = Date.parse("#{params[:date][:month]}/#{params[:date][:year]}") if params[:date]
   end
 
   def set_impression(value)

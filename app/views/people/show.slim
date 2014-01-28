@@ -24,8 +24,8 @@ table.table.table-striped
     th Position
     td = @person.position.try :description
   tr
-    th Expected Graduation Date
-    td = month_and_year(@person.expected_graduation_date)
+    th Graduation Date
+    td = month_and_year(@person.graduation_date)
   tr
     th Availability
     td = @person.availability.description

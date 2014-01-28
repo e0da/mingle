@@ -14,7 +14,7 @@
   = f.collection_select :position_id, Position.find_all_by_enabled(true), :id, :description, {prompt: true}, {class: 'span8'}
 
   - today = Date.today
-  = f.label :expected_graduation_date
+  = f.label :graduation_date
   .controls-row
     = select_month Date.parse('June'), {}, {class: 'span6'}
     = select_year today, {start_year: today.year, end_year: today.year + 4}, {class: 'span2'}
