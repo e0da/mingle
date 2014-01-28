@@ -16,12 +16,16 @@ group :assets do
   gem 'uglifier'
 end
 
-group :development, :test do
-  gem 'capybara'
+group :development do
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'shotgun'
+end
+
+group :development, :test do
+  gem 'capybara'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov'
