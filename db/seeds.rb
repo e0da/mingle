@@ -10,7 +10,7 @@ end
   'Software Developer',
   'DevOps / Systems Administrator',
   'Technical Support and QA',
-  'Sales/Account Management',
+  'Sales / Account Management',
   'Project Management',
   'Graphic Designer',
   'Social Media and Marketing Coordinator',
