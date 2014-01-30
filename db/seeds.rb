@@ -8,7 +8,7 @@ end
 
 [
   'Software Developer',
-  'Data Center Systems Administrator',
+  'DevOps / Systems Administrator',
   'Technical Support and QA',
   'Sales/Account Management',
   'Project Management',
