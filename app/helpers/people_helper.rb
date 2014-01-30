@@ -5,4 +5,12 @@ module PeopleHelper
       (controller.action_name == 'show' ||
        controller.action_name == 'edit')
   end
+
+  def enabled_positions
+    Position.where(enabled: true).order(:description)
+  end
+
+  def enabled_availabilities
+    Availability.where(enabled: true)
+  end
 end
