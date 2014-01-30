@@ -14,8 +14,9 @@ class RenameDataCenterSystemsAdministratorDescriptionToDevopsSystemsAdministrato
   private
 
   def update_position(current, new)
-    position = Position.find_by_description current
-    position.description = new
-    position.save
+    Position.find_all_by_description(current).each do |position|
+      position.description = new
+      position.save
+    end
   end
 end
